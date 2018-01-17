@@ -10,20 +10,47 @@ namespace ContosoWeb.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: Student
-        public ActionResult Index()
+        ////dependency injection
+        ////private readonly IStudentService _studentService;
+        ////public StudentController(IStudentService studentService)
+        ////{
+        ////    _studentService = studentService;
+        ////}
+        //// GET: Student
+        //public ActionResult Index()
+        //{
+        //    //not good too many instance created
+        //    ContosoDbContext context = new ContosoDbContext();
+        //    StudentRepository studentRepository = new StudentRepository(context);
+        //    StudentService ss = new StudentService(studentRepository);
+        //    var students = ss.GetAllStudents();
+        //    //var students = _studentService.GetAllStudents();
+        //    return View(students);
+        //}
+
+
+
+
+        private readonly IStudentService _studentService;
+        public StudentController(IStudentService studentService)
         {
-            //not good too many instance created
-            ContosoDbContext context = new ContosoDbContext();
-            StudentRepository studentRepository = new StudentRepository(context);
-            StudentService ss = new StudentService(studentRepository);
-            var students = ss.GetAllStudents();
+            _studentService = studentService;
+        }
+        public ActionResult Index(IPersonService peopleService)
+        {
+            var students = _studentService.GetAllStudents();
             return View(students);
         }
+
+
+
+
 
         // GET: Student/Details/5
         public ActionResult Details(int id)
         {
+            //var student = _studentService.GetStudentById(id);
+            //return View(student);
             return View();
         }
 

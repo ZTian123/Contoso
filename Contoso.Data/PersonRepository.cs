@@ -9,7 +9,7 @@ namespace Contoso.Data
 {
     public class PersonRepository : Repository<People>, IPersonRepository
     {
-        //8个method
+        //base 8个method
         public PersonRepository(ContosoDbContext context) : base(context)
         {
         }

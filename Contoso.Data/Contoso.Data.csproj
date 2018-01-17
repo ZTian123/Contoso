@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContosoDbContext.cs" />
+    <Compile Include="CourseRepository.cs" />
     <Compile Include="DepartmentRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201801122253121_InitialDbMigration.cs" />

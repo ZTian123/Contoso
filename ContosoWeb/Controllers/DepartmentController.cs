@@ -1,5 +1,4 @@
-﻿using Contoso.Data;
-using Contoso.Service;
+﻿using Contoso.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,39 +7,36 @@ using System.Web.Mvc;
 
 namespace ContosoWeb.Controllers
 {
-    public class PeopleController : Controller
+    public class DepartmentController : Controller
     {
-        //dependency injection
-        private readonly IPersonService _peopleService;
-        public PeopleController(IPersonService peopleService)//constructor
+        //DI
+        private readonly IDepartmentService _departmentService;
+        public DepartmentController(IDepartmentService departmentService)
         {
-            _peopleService = peopleService;
+            _departmentService = departmentService;
         }
-        // GET: People
+
+        // GET: Department
         public ActionResult Index()
         {
-            //ContosoDbContext context = new ContosoDbContext();
-            //PersonRepository peopleRepository = new PersonRepository(context);
-            //PersonService ss = new PersonService(peopleRepository);
-            //var people = ss.GetAllPeople();
-            var people = _peopleService.GetAllPeople();
-            return View(people);
+            var departments = _departmentService.GetAllDepartments();
+            return View(departments);
         }
 
-        // GET: People/Details/5
+        // GET: Department/Details/5
         public ActionResult Details(int id)
         {
-            var people = _peopleService.GetPersonById(id);
-            return View(people);
+            var department = _departmentService.GetDepartmentById(id);
+            return View(department);
         }
 
-        // GET: People/Create
+        // GET: Department/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: People/Create
+        // POST: Department/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -56,13 +52,13 @@ namespace ContosoWeb.Controllers
             }
         }
 
-        // GET: People/Edit/5
+        // GET: Department/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: People/Edit/5
+        // POST: Department/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -78,13 +74,13 @@ namespace ContosoWeb.Controllers
             }
         }
 
-        // GET: People/Delete/5
+        // GET: Department/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: People/Delete/5
+        // POST: Department/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

@@ -11,9 +11,7 @@ namespace Contoso.Service
     public class PersonService : IPersonService
     {
         //dependency injection
-
         private readonly IPersonRepository _personRepository;
-
         //ctor
         public PersonService(IPersonRepository personRepository)
         {

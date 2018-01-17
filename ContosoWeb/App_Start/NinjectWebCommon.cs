@@ -69,16 +69,19 @@ namespace Contoso.App_Start
         {
             // Repositories
 
-            kernel.Bind<IStudentRepository>().To<StudentRepository>();
+            //kernel.Bind<IStudentRepository>().To<StudentRepository>();
             kernel.Bind<IPersonRepository>().To<PersonRepository>();
-
+            kernel.Bind<IStudentRepository>().To<StudentRepository>();
+            kernel.Bind<IDepartmentRepository>().To<DepartmentRepository>();
 
             //Services
-            kernel.Bind<IStudentService>().To<StudentService>();
+            //kernel.Bind<IStudentService>().To<StudentService>();
             kernel.Bind<IPersonService>().To<PersonService>();//what class should be inject
             //ninjec.web.mvc will remove MVC controller parameterless exception
             //(asp.net code 中build-in dependency injection functionality)
             //also will inject concrete time of classes to interface
+            kernel.Bind<IStudentService>().To<StudentService>();
+            kernel.Bind<IDepartmentService>().To<DepartmentService>();
 
         }        
     }
