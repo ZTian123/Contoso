@@ -9,7 +9,7 @@ namespace ContosoWeb.Controllers
 {
     public class CourseController : Controller
     {
-        //DI
+        //DI//
         private readonly ICourseService _courseService;
         public CourseController(ICourseService courseService)
         {
