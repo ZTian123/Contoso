@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Contoso.Model.Common
+{
+    public abstract class Entity : IEntity
+    {
+        public virtual int Id { get; set; }
+        //int IEntity.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    }
+}
