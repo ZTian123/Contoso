@@ -73,6 +73,8 @@ namespace Contoso.App_Start
             kernel.Bind<IPersonRepository>().To<PersonRepository>();
             kernel.Bind<IStudentRepository>().To<StudentRepository>();
             kernel.Bind<IDepartmentRepository>().To<DepartmentRepository>();
+            kernel.Bind<ICourseRepository>().To<CourseRepository>();
+
 
             //Services
             //kernel.Bind<IStudentService>().To<StudentService>();
@@ -82,6 +84,7 @@ namespace Contoso.App_Start
             //also will inject concrete time of classes to interface
             kernel.Bind<IStudentService>().To<StudentService>();
             kernel.Bind<IDepartmentService>().To<DepartmentService>();
+            kernel.Bind<ICourseService>().To<CourseService>();
 
         }        
     }
