@@ -28,15 +28,12 @@ namespace ContosoWeb.Controllers
         //    return View(students);
         //}
 
-
-
-
         private readonly IStudentService _studentService;
         public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
         }
-        public ActionResult Index(IPersonService peopleService)
+        public ActionResult Index()
         {
             var students = _studentService.GetAllStudents();
             return View(students);
