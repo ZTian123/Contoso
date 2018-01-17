@@ -19,7 +19,7 @@ namespace Contoso.Model
         public Instructor Instructor { get; set; }
         
         //FK: department => courses; one to many; course是FK table
-        public ICollection<Course> Courses { get; set; }//no influence to migrations
+        public virtual ICollection<Course> Courses { get; set; }//no influence to migrations
 
     }
 }

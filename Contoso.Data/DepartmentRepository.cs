@@ -16,6 +16,7 @@ namespace Contoso.Data
         public Department GetDepartmentByName(string name)
         {
             var dept = _context.Departments.FirstOrDefault(d => d.Name == name);
+            //dept.Courses = _context.Courses.Where(c => c.DepartmentId == dept.Id).ToList();
             return dept;
         }
 
